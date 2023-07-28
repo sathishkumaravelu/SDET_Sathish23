@@ -2,7 +2,7 @@ package mandatoryHomeWork.foundation;
 
 import org.junit.Test;
 
-public class p4_NextBiggestTargetCharacter {
+public class p04_NextBiggestTargetCharacter {
 
 	@Test
 	public void test() {

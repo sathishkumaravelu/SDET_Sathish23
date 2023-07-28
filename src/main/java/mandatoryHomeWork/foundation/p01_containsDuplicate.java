@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import junit.framework.Assert;
 
-public class p1_containsDuplicate {
+public class p01_containsDuplicate {
 
 
 	@Test

@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
-public class p6_MajorityElement {
+public class p06_MajorityElement {
 
 	@Test
 	public void test() {

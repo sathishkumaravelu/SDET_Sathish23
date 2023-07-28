@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import junit.framework.Assert;
 
-public class p5__BuyAndSell {
+public class p05__BuyAndSell {
 	
 	@Test
 	public void test() {
