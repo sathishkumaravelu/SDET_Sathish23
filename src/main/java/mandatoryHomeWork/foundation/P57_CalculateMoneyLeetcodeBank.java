@@ -2,16 +2,29 @@ package mandatoryHomeWork.foundation;
 
 import org.junit.Test;
 
+import junit.framework.Assert;
+
 public class P57_CalculateMoneyLeetcodeBank {
 
 	@Test
 	public void test() {
-		calculateMoney(7);
-		calculateMoney(14);
-		calculateMoney(5);
-		calculateMoney(12);
+		int actualCalculateMoney = calculateMoney1(20);
+		Assert.assertEquals(96, actualCalculateMoney);
 	}
 
+	@Test
+	public void test1() {
+		int actualCalculateMoney = calculateMoney1(7);
+		Assert.assertEquals(28, actualCalculateMoney);
+	}
+
+
+	@Test
+	public void test2() {
+		int actualCalculateMoney = calculateMoney1(14);
+		Assert.assertEquals(63, actualCalculateMoney);
+	}
+	
 	public int calculateMoney(int day) {
 
 		int temp = 0;
@@ -42,11 +55,39 @@ public class P57_CalculateMoneyLeetcodeBank {
 			result = 28 * quo + temp;
 
 		} else {
-			result = 28 * rem + temp;
+			result = 28 + (rem*7 )+ temp;
 		}
 
 		System.out.println(result);
 		return result;
 	}
+
+	public int calculateMoney1(int day) {
+		int balance = 0, count = 0, saving=0;
+/*		if (day <= 7) {
+			while (count < day) {
+				balance = balance + 1;
+				saving = saving +balance;
+				count++;
+				
+			}
+			return saving;
+		} else if (day > 7) {*/
+			int inializer=0;
+			for (int i = 1; i <= day; i++) {
+				balance = balance + 1;
+				saving = saving +balance;
+				count++;
+				if (count == 7) {
+					balance= ++inializer;
+					count = 0;
+				}
+
+			}
+
+	// System.out.println(balance);
+	return saving;
+
+}
 
 }
