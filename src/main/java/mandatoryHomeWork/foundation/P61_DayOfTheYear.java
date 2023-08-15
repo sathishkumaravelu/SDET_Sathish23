@@ -1,7 +1,9 @@
 package mandatoryHomeWork.foundation;
 
 import org.junit.Test;
-import org.testng.Assert;
+
+import junit.framework.Assert;
+
 
 public class P61_DayOfTheYear {
 
@@ -44,10 +46,10 @@ public class P61_DayOfTheYear {
 	public void PostiveTestData() {
 
 		String input = "2019-01-01";
-		Assert.assertEquals(DaysOfYear(input), 1);
+		junit.framework.Assert.assertEquals(DaysOfYear(input), 1);
 		
 		String input1 = "2019-09-15";
-		Assert.assertEquals(DaysOfYear(input1), 257);
+		junit.framework.Assert.assertEquals(DaysOfYear(input1), 257);
 
 	}
 
@@ -68,7 +70,7 @@ public class P61_DayOfTheYear {
 		if (DaysOfYear(input) == -1) {
 			output = "invalid input";
 		}
-		Assert.assertEquals("invalid input", output);
+		junit.framework.Assert.assertEquals("invalid input", output);
 	}
 
 	public int DaysOfYear(String input) {

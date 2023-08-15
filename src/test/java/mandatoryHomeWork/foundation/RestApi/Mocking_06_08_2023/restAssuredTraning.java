@@ -1,4 +1,4 @@
-package mandatoryHomeWork.foundation.RedoDailyConnect;
+package mandatoryHomeWork.foundation.RestApi.Mocking_06_08_2023;
 
 import org.junit.Test;
 import org.testng.Assert;
@@ -9,7 +9,7 @@ import io.restassured.response.Response;
 
 public class restAssuredTraning {
 	
-	@Test
+	@org.testng.annotations.Test
 	public void createBooking() {
 		
 			
@@ -33,6 +33,7 @@ public class restAssuredTraning {
 		
 		response.prettyPrint();
 		System.out.println(response.statusCode());
-		Assert.assertEquals(200, response.statusCode());
+		response.then().assertThat().statusCode(200);
+		//Assert.assertEquals(200, response.statusCode());
 	}
 }

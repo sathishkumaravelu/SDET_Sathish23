@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="mandatoryHomeWork.foundation.RestApi.Mocking_06_08_2023.MockRecording">
+      <class name="mandatoryHomeWork.foundation.RestApi.Mocking_06_08_2023.CreateBooking_Restful_Booking">
         <methods>
-          <include name="record"/>
+          <include name="createBooking"/>
         </methods>
-      </class> <!-- mandatoryHomeWork.foundation.RestApi.Mocking_06_08_2023.MockRecording -->
+      </class> <!-- mandatoryHomeWork.foundation.RestApi.Mocking_06_08_2023.CreateBooking_Restful_Booking -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
