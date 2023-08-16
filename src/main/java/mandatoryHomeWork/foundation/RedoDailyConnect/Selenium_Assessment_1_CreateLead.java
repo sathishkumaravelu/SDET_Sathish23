@@ -9,6 +9,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import com.github.javafaker.Faker;
+
 import junit.framework.Assert;
 
 public class Selenium_Assessment_1_CreateLead {
@@ -18,7 +20,9 @@ public class Selenium_Assessment_1_CreateLead {
 	@Test
 	public void createLead() {
 
+		Faker faker = new Faker();
 		WebDriver driver = new ChromeDriver();
+
 		// implicit wait of 60 sec
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
@@ -32,27 +36,32 @@ public class Selenium_Assessment_1_CreateLead {
 		driver.findElement(By.xpath("//li[@class='sectionTabButtonUnselected']//a[contains(text(),'Leads')]")).click();
 
 		driver.findElement(By.xpath("(//*[text()='Create Lead'])[1]")).click();
-		
-		
-		//createLeadForm_companyName
-		driver.findElement(By.id("createLeadForm_companyName")).sendKeys("CTS");
-		driver.findElement(By.id("createLeadForm_firstName")).sendKeys("Sathish");
-		driver.findElement(By.id("createLeadForm_lastName")).sendKeys("Kumaravelu");
-		
+
+		// createLeadForm_companyName
+		String companyName = faker.company().name();
+		String firstName = faker.name().fullName();
+		String lastName = faker.name().lastName();
+		String department = faker.company().profession();
+		String emailAddress = faker.internet().emailAddress();
+
+		driver.findElement(By.id("createLeadForm_companyName")).sendKeys(companyName);
+
+		driver.findElement(By.id("createLeadForm_firstName")).sendKeys(firstName);
+		driver.findElement(By.id("createLeadForm_lastName")).sendKeys(lastName);
+		System.out.println(companyName +" "+ firstName +" "+ lastName);
 		driver.findElement(By.id("createLeadForm_description")).sendKeys("testing create lead");
-		driver.findElement(By.id("createLeadForm_departmentName")).sendKeys("testing");
-		driver.findElement(By.id("createLeadForm_primaryEmail")).sendKeys("sathish@test.com");
+		driver.findElement(By.id("createLeadForm_departmentName")).sendKeys(department);
+		driver.findElement(By.id("createLeadForm_primaryEmail")).sendKeys(emailAddress);
 		WebElement stateDDElement = driver.findElement(By.id("createLeadForm_generalStateProvinceGeoId"));
 		Select stateDD = new Select(stateDDElement);
 		stateDD.selectByIndex(1);
-		
-		
+
 		driver.findElement(By.xpath("//*[@value='Create Lead']")).click();
 		String actualTitle = driver.getTitle();
-		
+
 		Assert.assertEquals("View Lead | opentaps CRM", actualTitle);
-		
+
 		driver.quit();
-		
+
 	}
 }
